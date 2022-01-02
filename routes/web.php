@@ -18,19 +18,19 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    //return view('welcome');
-    echo" This is Home page";
+    return view('welcome');
+    //echo" This is Home page";
 });
 
 Route::get('/about', function () {
     return view('about');
     //echo "This is About Page";
-})->middleware('check_age');
+}); //->middleware('check_age');
 
 //Route::get('/contact', function () {
     //return view('welcome');
     //echo "This is Contact Page";
 //});
 
-Route::get('/contact',[ContactController::class, 'index']);
+Route::get('/contact',[ContactController::class, 'index'])->name('contact_page');
 
