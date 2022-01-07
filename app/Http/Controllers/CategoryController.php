@@ -65,6 +65,7 @@ class CategoryController extends Controller
 
     public function Edit($id){
         // $categories = Category::find($id);
+        //..... Query Builder Edit Category .......
         $categories = DB::table('categories')->where('id',$id)->first();
         return view('admin.category.edit',compact('categories'));
 
@@ -77,7 +78,7 @@ class CategoryController extends Controller
         //     'user_id' => Auth::user()->id
 
         // ]);
-
+        //..... Query Builder Update Category .......
         $data = array();
         $data['category_name'] = $request->category_name;
         $data['user_id'] = Auth::user()->id;
