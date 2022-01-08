@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            All Category<b>  </b>
+            Category<b>  </b>
         </h2>
     </x-slot>
 
@@ -20,7 +20,7 @@
                             </div>
                         @endif
 
-                        <div class="card-header"> All Category </div>
+                        <div class="card-header">Category </div>
                         <table class="table">
                             <thead>
                             <tr>
