@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
-//use App\Models\User;
+use App\Http\Controllers\ChangePass;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,17 @@ Route::post('/multi/add', [BrandController::class, 'StoreImg'])->name('store.ima
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     //$users = User::all();
-    $users = DB::table('users')->get();
-    return view('dashboard',compact('users'));
+    //$users = DB::table('users')->get();
+    //return view('dashboard',compact('users'));
+    return view('admin.index');
 })->name('dashboard');
+
+Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logout');
+
+/// Chanage Password and user Profile Route
+Route::get('/user/password', [ChangePass::class, 'CPassword'])->name('change.password');
+Route::post('/password/update', [ChangePass::class, 'UpdatePassword'])->name('password.update');
+
+// User Profile
+Route::get('/user/profile', [ChangePass::class, 'PUpdate'])->name('profile.update');
+Route::post('/user/profile/update', [ChangePass::class, 'UpdateProfile'])->name('update.user.profile');
